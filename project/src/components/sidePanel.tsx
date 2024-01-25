@@ -14,6 +14,35 @@ import WorkIcon from '@mui/icons-material/Work';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import SchoolIcon from '@mui/icons-material/School';
+import styled from 'styled-components';
+import { makeStyles } from '@material-ui/core/styles';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+
+
+// Define your styles using makeStyles
+const useStyles = makeStyles((theme) => ({
+  outerContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'left',
+  },
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  icon: {
+    color: '#716f6f',
+    margin: '1rem',
+    marginRight: '0px',
+  },
+}));
+
+const Photo = styled.img`
+  width: 30vh;
+  height: auto;
+`;
 
 const icons = [HomeIcon, WorkIcon, ConstructionIcon, AssignmentIcon, SchoolIcon]
 
@@ -24,6 +53,7 @@ interface SidePanelProps {
 
 export default function SidePanel({page, setPage}: SidePanelProps) {
   const [open, setOpen] = React.useState<boolean>(false);
+  const classes = useStyles();
 
   const onClose = () => {
     setOpen(false);
@@ -35,7 +65,7 @@ export default function SidePanel({page, setPage}: SidePanelProps) {
 
   const list = () => (
     <Box
-      sx={{ width: 250 }}
+      sx={{ width: '100%' }}
       role="presentation"
       onClick={onClose}
       onKeyDown={onClose}
@@ -65,6 +95,7 @@ export default function SidePanel({page, setPage}: SidePanelProps) {
           </ListItem>
         ))}
       </List>
+      <Divider />
     </Box>
   );
 
@@ -79,8 +110,20 @@ export default function SidePanel({page, setPage}: SidePanelProps) {
           open={open}
           onClose={onClose}
         >
-          {list()}
+          <div >
+            <div className={classes.container}>
+              <Photo key={'profile'} src={'profile.jpeg'} alt={`profile photo`}/>
+              {list()}
+            </div>
+            <a href={'https://github.com/Daniel-Horsnell'}>
+              <GitHubIcon className={classes.icon} fontSize='large'/>
+            </a>
+            <a href={'https://www.linkedin.com/in/daniel-horsnell/'}>
+              <LinkedInIcon className={classes.icon} fontSize='large'/>
+            </a>
+          </div>
         </Drawer>
+        
       </React.Fragment>
 
     </div>

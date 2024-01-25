@@ -1,10 +1,12 @@
 import React from 'react';
+import PhotoAnimator from '../shared/photoAnimator';
+
 
 const Home: React.FC = () => {
   return (
-    <div>
+    <div style={{ alignItems: 'baseline'}}>
       <h1>Welcome to My Website</h1>
-      {/* Add your photos and text descriptions here */}
+      <PhotoAnimator photoUrls={['Background.jpeg']} />
     </div>
   );
 };
