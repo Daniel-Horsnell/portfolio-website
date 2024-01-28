@@ -1,4 +1,5 @@
-import { Box, Slider, Typography } from '@mui/material';
+import { Box, Button, Slider, Typography } from '@mui/material';
+import DensityMediumIcon from '@mui/icons-material/DensityMedium';
 import React from 'react';
 
 const marks = [
@@ -20,6 +21,10 @@ const marks = [
   },
 ];
 
+interface employmentProps {
+  onOpen: () => void;
+}
+
 function valuetext(value: number) {
   if (value < 1.5) return 'The Newport: Merivale';
   else if (value < 3) return 'The Establishemnt: Merivale';
@@ -27,7 +32,7 @@ function valuetext(value: number) {
   else return "Unemployed";
 }
 
-const Employment: React.FC = () => {
+function Employment({ onOpen }: employmentProps) {
   const [value, setValue] = React.useState<number>(0);
 
   const handleChange = (event: Event, newValue: number | number[]) => {
@@ -40,6 +45,9 @@ const Employment: React.FC = () => {
     <div>
       <h1>Employment</h1>
       <div style={{ display: 'flex'}}>
+        <Button onClick={onOpen} style={{ marginTop: '1rem'}}>
+          <DensityMediumIcon/>
+        </Button>
         <Box sx={{ height: '80vh' }}>
           <Slider 
             aria-label="Custom marks"

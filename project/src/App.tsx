@@ -10,27 +10,36 @@ const pages = ['Home', 'Employment', 'Projects', 'Resume', 'Education'];
 
 const App: React.FC = () => {
   const [page, setPage] = useState<string>('Home')
+  const [open, setOpen] = React.useState<boolean>(false);
+
+  const closeSidePanel = () => {
+    setOpen(false);
+  }
+
+  const openSidePanel = () => {
+    setOpen(true);
+  }
 
   const loadPage = () => {
     switch (page) {
       case pages[0]:
-        return <Home />
+        return <Home onOpen={openSidePanel}/>
       case pages[1]:
-        return <Employment />
+        return <Employment onOpen={openSidePanel}/>
       case pages[2]:
-        return <Projects />
+        return <Projects onOpen={openSidePanel}/>
       case pages[3]:
-        return <Resume />
+        return <Resume onOpen={openSidePanel}/>
       case pages[4]:
-        return <Education />
+        return <Education onOpen={openSidePanel}/>
       default:
-        return <Home />
+        return <Home onOpen={openSidePanel}/>
     }
   }
 
   return (
     <div style={{ display: 'flex', height: 'max-height'}} key={page}>
-      <SidePanel page={page} setPage={setPage}/>
+      <SidePanel page={page} open={open} onClose={closeSidePanel} onOpen={openSidePanel} setPage={setPage}/>
       {loadPage()}
     </div>
   );

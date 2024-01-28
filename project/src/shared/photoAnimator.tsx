@@ -2,7 +2,8 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 interface photoAnimatorProps {
-  photoUrls: string[]
+  photoUrls: string[];
+  passedStyle: any;
 }
 
 const fadeIn = keyframes`
@@ -22,17 +23,17 @@ const PhotoContainer = styled.div`
 `;
 
 const Photo = styled.img`
-  width: 100%;
+  width: 100vh;
   height: auto;
   animation: ${fadeIn} 1.5s ease-in-out;
   box-shadow: 0 0 8px 8px white inset;
 `;
 
-export default function PhotoAnimator({photoUrls}: photoAnimatorProps) {
+export default function PhotoAnimator({photoUrls, passedStyle}: photoAnimatorProps) {
   return (
     <div style={{alignItems: 'baseline'}}>
       <React.Fragment>
-        <PhotoContainer style={{ alignItems: 'baseline'}}>
+        <PhotoContainer style={passedStyle}>
           {photoUrls.map((url, index) => (
             <Photo key={index} src={url} alt={`Photo ${index + 1}`} style={{ boxShadow: '0 0 50px 50px white inset'}}/>
           ))}

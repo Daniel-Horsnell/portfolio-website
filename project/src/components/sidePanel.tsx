@@ -48,20 +48,16 @@ const icons = [HomeIcon, WorkIcon, ConstructionIcon, AssignmentIcon, SchoolIcon]
 
 interface SidePanelProps {
   page: string;
+  open: boolean;
+  onClose: () => void;
+  onOpen: () => void;
   setPage: (page: string) => void;
 }
 
-export default function SidePanel({page, setPage}: SidePanelProps) {
-  const [open, setOpen] = React.useState<boolean>(false);
+export default function SidePanel({page, open, onClose, onOpen, setPage}: SidePanelProps) {
   const classes = useStyles();
 
-  const onClose = () => {
-    setOpen(false);
-  }
-
-  const onOpen = () => {
-    setOpen(true);
-  }
+  
 
   const list = () => (
     <Box
@@ -102,9 +98,6 @@ export default function SidePanel({page, setPage}: SidePanelProps) {
   return (
     <div>
       <React.Fragment>
-        <Button onClick={onOpen} style={{ marginTop: '1rem'}}>
-          <DensityMediumIcon/>
-        </Button>
         <Drawer
           anchor={'left'}
           open={open}
