@@ -5,6 +5,8 @@ import Employment from './components/employment';
 import Projects from './components/projects';
 import Resume from './components/resume';
 import Education from './components/education';
+import { Button } from '@mui/material';
+import DensityMediumIcon from '@mui/icons-material/DensityMedium';
 
 const pages = ['Home', 'Employment', 'Projects', 'Resume', 'Education'];
 
@@ -23,22 +25,25 @@ const App: React.FC = () => {
   const loadPage = () => {
     switch (page) {
       case pages[0]:
-        return <Home onOpen={openSidePanel}/>
+        return <Home />
       case pages[1]:
-        return <Employment onOpen={openSidePanel}/>
+        return <Employment />
       case pages[2]:
-        return <Projects onOpen={openSidePanel}/>
+        return <Projects />
       case pages[3]:
-        return <Resume onOpen={openSidePanel}/>
+        return <Resume />
       case pages[4]:
-        return <Education onOpen={openSidePanel}/>
+        return <Education />
       default:
-        return <Home onOpen={openSidePanel}/>
+        return <Home />
     }
   }
 
   return (
     <div style={{ display: 'flex', height: 'max-height'}} key={page}>
+      <Button onClick={openSidePanel} style={{ position: 'absolute', top: '1rem', left: 0, zIndex: 3 }}>
+        <DensityMediumIcon />
+      </Button>
       <SidePanel page={page} open={open} onClose={closeSidePanel} onOpen={openSidePanel} setPage={setPage}/>
       {loadPage()}
     </div>

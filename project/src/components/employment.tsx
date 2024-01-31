@@ -1,19 +1,20 @@
 import { Box, Button, Slider, Typography } from '@mui/material';
 import DensityMediumIcon from '@mui/icons-material/DensityMedium';
 import React from 'react';
+import PhotoAnimator from '../shared/photoAnimator';
 
 const marks = [
   {
     value: 0,
-    label: 'January 2020',
+    label: '12/19',
   },
   {
     value: 1.5,
-    label: 'July 2022',
+    label: '06/21',
   },
   {
     value: 3,
-    label: 'November 2023',
+    label: '11/22',
   },
   {
     value: 4,
@@ -21,9 +22,6 @@ const marks = [
   },
 ];
 
-interface employmentProps {
-  onOpen: () => void;
-}
 
 function valuetext(value: number) {
   if (value < 1.5) return 'The Newport: Merivale';
@@ -32,7 +30,14 @@ function valuetext(value: number) {
   else return "Unemployed";
 }
 
-function Employment({ onOpen }: employmentProps) {
+function getPicture(value: number) {
+  if (value < 1.5) return 'The_Newport.jpg';
+  else if (value < 3) return 'Palmerco.jpg';
+  else if (value < 4) return 'CloudGroundControl.jpg';
+  else return "grey.png";
+}
+
+function Employment() {
   const [value, setValue] = React.useState<number>(0);
 
   const handleChange = (event: Event, newValue: number | number[]) => {
@@ -42,13 +47,9 @@ function Employment({ onOpen }: employmentProps) {
   };
 
   return (
-    <div>
-      <h1>Employment</h1>
-      <div style={{ display: 'flex'}}>
-        <Button onClick={onOpen} style={{ marginTop: '1rem'}}>
-          <DensityMediumIcon/>
-        </Button>
-        <Box sx={{ height: '80vh' }}>
+    <div style={{ position: 'relative', display: 'flex', width: '100%', height: '100%'}}>
+      <div style={{ display: 'flex', zIndex: 2}}>
+        <Box sx={{ height: '80vh', width: '10vw', background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)', marginRight: '1rem' }}>
           <Slider 
             aria-label="Custom marks"
             defaultValue={0}
@@ -59,9 +60,13 @@ function Employment({ onOpen }: employmentProps) {
             valueLabelDisplay="off"
             marks={marks}
             orientation="vertical"
-            onChange={handleChange}></Slider>
+            onChange={handleChange}
+            style={{ margin: '1rem', marginTop: '5rem' }}></Slider>
         </Box>
         <Typography>{valuetext(value)}</Typography>
+      </div>
+      <div style={{  position: 'absolute' , top: 0, width: '100%' }}>
+        <PhotoAnimator photoUrl={getPicture(value)} />
       </div>
     </div>
   );

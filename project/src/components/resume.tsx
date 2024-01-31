@@ -1,18 +1,9 @@
-import { Button } from '@mui/material';
-import DensityMediumIcon from '@mui/icons-material/DensityMedium';
 import React from 'react';
 
-interface resumeProps {
-  onOpen: () => void;
-}
-
-function Resume({ onOpen }: resumeProps) {
+function Resume() {
   return (
-    <div style={{ width: '100vw', height: '100vh'}}>
-      <h1>Resume</h1>
-      <Button onClick={onOpen} style={{ marginTop: '1rem'}}>
-        <DensityMediumIcon/>
-      </Button>
+    <div style={{ width: '100vw', height: '100vh', overflow: 'hidden'}}>
+      <h1 style={{ margin: '1rem', marginLeft: '5rem', marginTop: '15px' }}>Resume</h1>
       <iframe
         title="PDF Viewer"
         width="100%"
