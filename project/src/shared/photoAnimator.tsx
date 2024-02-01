@@ -1,8 +1,10 @@
+import { Typography } from '@mui/material';
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 interface photoAnimatorProps {
   photoUrl: string;
+  headingText: string;
 }
 
 const fadeIn = keyframes`
@@ -35,7 +37,6 @@ const Photo = styled.img`
   width: 100%;
   height: auto;
   animation: ${fadeIn} 1.5s ease-in-out;
-  box-shadow: 0 0 8px 8px white inset;
 `;
 
 const BottomBlur = styled.div`
@@ -47,14 +48,27 @@ const BottomBlur = styled.div`
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
 `;
 
-export default function PhotoAnimator({photoUrl}: photoAnimatorProps) {
+const Heading = styled.p`
+  position: absolute;
+  bottom: 0;
+  right: 10rem;
+  font-size: 64px;
+  font-family: monospace;
+  animation: ${fadeIn} 1.5s ease-in-out forwards;
+  animation-delay: 1s;
+  opacity: 0;
+`;
+
+export default function PhotoAnimator({photoUrl, headingText}: photoAnimatorProps) {
   return (
     <div style={{alignItems: 'baseline'}}>
       <React.Fragment>
         <Container>
           <PhotoContainer >
-            <Photo src={photoUrl} key={photoUrl} alt={`Photo ${photoUrl}`} style={{ boxShadow: '0 0 50px 50px white inset', width: '100%', height: 'auto'}}/>
-            <BottomBlur/>
+            <Photo src={photoUrl} key={photoUrl} alt={`Photo ${photoUrl}`} style={{ width: '100%', height: 'auto'}}/>
+            <BottomBlur>
+              <Heading key={headingText}>{headingText}</Heading>
+            </BottomBlur>
           </PhotoContainer>
         </Container>
       </React.Fragment>

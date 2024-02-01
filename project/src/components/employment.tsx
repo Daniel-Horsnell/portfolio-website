@@ -1,5 +1,4 @@
 import { Box, Button, Slider, Typography } from '@mui/material';
-import DensityMediumIcon from '@mui/icons-material/DensityMedium';
 import React from 'react';
 import PhotoAnimator from '../shared/photoAnimator';
 
@@ -38,7 +37,7 @@ function getPicture(value: number) {
 }
 
 function Employment() {
-  const [value, setValue] = React.useState<number>(0);
+  const [value, setValue] = React.useState<number>(3);
 
   const handleChange = (event: Event, newValue: number | number[]) => {
     if (typeof newValue === 'number') {
@@ -52,7 +51,7 @@ function Employment() {
         <Box sx={{ height: '80vh', width: '10vw', background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)', marginRight: '1rem' }}>
           <Slider 
             aria-label="Custom marks"
-            defaultValue={0}
+            defaultValue={3}
             min={0}
             max={4}
             getAriaValueText={valuetext}
@@ -63,10 +62,9 @@ function Employment() {
             onChange={handleChange}
             style={{ margin: '1rem', marginTop: '5rem' }}></Slider>
         </Box>
-        <Typography>{valuetext(value)}</Typography>
       </div>
-      <div style={{  position: 'absolute' , top: 0, width: '100%' }}>
-        <PhotoAnimator photoUrl={getPicture(value)} />
+      <div style={{ position: 'absolute' , top: 0, width: '100%' }}>
+        <PhotoAnimator photoUrl={getPicture(value)} headingText={valuetext(value)}/>
       </div>
     </div>
   );

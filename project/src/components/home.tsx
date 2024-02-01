@@ -5,7 +5,7 @@ import { Button } from '@mui/material';
 function Home() {
   return (
     <div style={{ position: 'relative' , width: '100%'}}>
-      <PhotoAnimator photoUrl={'Background.jpeg'} />
+      <PhotoAnimator photoUrl={'Background.jpeg'} headingText='Daniel Horsnell'/>
   </div>
   );
 };
