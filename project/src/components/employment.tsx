@@ -64,7 +64,7 @@ function Employment() {
         </Box>
       </div>
       <div style={{ position: 'absolute' , top: 0, width: '100%' }}>
-        <PhotoAnimator photoUrl={getPicture(value)} headingText={valuetext(value)}/>
+        <PhotoAnimator photoUrl={getPicture(value)} headingText={valuetext(value)} isVideo={false}/>
       </div>
     </div>
   );
