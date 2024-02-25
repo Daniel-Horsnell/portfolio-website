@@ -6,7 +6,7 @@ function Home() {
   return (
     <div style={{ position: 'relative' , width: '100%'}}>
       <PhotoAnimator photoUrl={'Background.jpeg'} headingText='Daniel Horsnell' isVideo={false}/>
-  </div>
+    </div>
   );
 };
 

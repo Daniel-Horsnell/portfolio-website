@@ -15,7 +15,7 @@ function Projects() {
 
   return (
     <div style={{display: 'flex', overflowX: 'hidden'}}>
-      <div style={{borderRight: '1px grey', height: '100vh', width: '10vw'}}>
+      <div style={{borderRight: '1px solid lightgrey', height: '100vh', width: '10vw'}}>
         <Tabs variant='fullWidth' orientation='vertical' value={value} onChange={handleChange} sx={{ borderTop: 1, borderColor: 'divider' }} style={{position: 'absolute', top: '4rem', left: 0, width: '10vw'}}>
           {projectsList.map((val, index) => (
             <Tab value={index} label={val[0]} />

@@ -1,4 +1,4 @@
-import { Box, Button, Slider, Typography } from '@mui/material';
+import { Box, Button, Divider, Slider, Typography } from '@mui/material';
 import React from 'react';
 import PhotoAnimator from '../shared/photoAnimator';
 
@@ -46,8 +46,8 @@ function Employment() {
   };
 
   return (
-    <div style={{ position: 'relative', display: 'flex', width: '100%', height: '100%'}}>
-      <div style={{ display: 'flex', zIndex: 2}}>
+    <div style={{ display: 'flex', width: '100%', height: '100%', overflowX: 'hidden'}}>
+      <div style={{ display: 'flex', zIndex: 2, borderRight: '1px solid lightgrey', height: '100vh', width: '10vw'}}>
         <Box sx={{ height: '80vh', width: '10vw', background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)', marginRight: '1rem' }}>
           <Slider 
             aria-label="Custom marks"
@@ -63,7 +63,7 @@ function Employment() {
             style={{ margin: '1rem', marginTop: '5rem' }}></Slider>
         </Box>
       </div>
-      <div style={{ position: 'absolute' , top: 0, width: '100%' }}>
+      <div style={{ width: '100%' }}>
         <PhotoAnimator photoUrl={getPicture(value)} headingText={valuetext(value)} isVideo={false}/>
       </div>
     </div>
