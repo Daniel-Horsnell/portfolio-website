@@ -1,6 +1,9 @@
 import { Box, Button, Divider, Slider, Typography } from '@mui/material';
 import React from 'react';
 import PhotoAnimator from '../shared/photoAnimator';
+import TheNewport from './employment/theNewport';
+import Establishment from './employment/establishment';
+import AdvancedNavigation from './employment/advancedNavigation';
 
 const marks = [
   {
@@ -65,6 +68,9 @@ function Employment() {
       </div>
       <div style={{ width: '100%' }}>
         <PhotoAnimator photoUrl={getPicture(value)} headingText={valuetext(value)} isVideo={false}/>
+        <div>
+          {value < 1.5? <TheNewport/> : value < 3 ? <Establishment/> : value < 4? <AdvancedNavigation/> : <div/>}
+        </div>
       </div>
     </div>
   );
