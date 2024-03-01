@@ -1,6 +1,7 @@
 import React from 'react';
 import PhotoAnimator from '../shared/photoAnimator';
 import { Button } from '@mui/material';
+import { Text } from '../shared/styledComponents';
 
 function Home() {
   return (

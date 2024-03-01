@@ -1,9 +1,10 @@
 import React from 'react';
+import { Text } from '../shared/styledComponents';
 
 function Resume() {
   return (
     <div style={{ width: '100vw', height: '100vh', overflow: 'hidden'}}>
-      <h1 style={{ margin: '1rem', marginLeft: '5rem', marginTop: '15px' }}>Resume</h1>
+      <Text style={{margin: '1rem', marginTop: '18px', fontSize: '28px', animation: 'none', opacity: '1'}}>Resume</Text>
       <iframe
         title="PDF Viewer"
         width="100%"

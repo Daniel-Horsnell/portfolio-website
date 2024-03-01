@@ -50,23 +50,23 @@ function Employment() {
 
   return (
     <div style={{ display: 'flex', width: '100%', height: '100%', overflowX: 'hidden'}}>
-      <div style={{ display: 'flex', zIndex: 2, borderRight: '1px solid lightgrey', height: '100vh', width: '10vw'}}>
-        <Box sx={{ height: '80vh', width: '10vw', background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)', marginRight: '1rem' }}>
-          <Slider 
-            aria-label="Custom marks"
-            defaultValue={3}
-            min={0}
-            max={4}
-            getAriaValueText={valuetext}
-            step={0.5}
-            valueLabelDisplay="off"
-            marks={marks}
-            orientation="vertical"
-            onChange={handleChange}
-            style={{ margin: '1rem', marginTop: '5rem' }}></Slider>
+      <div style={{ display: 'flex', zIndex: 2, height: '100vh', width: '10vw'}}>
+        <Box sx={{ height: '80vh', width: '10vw', marginTop: '4rem', borderTop: '1px solid lightGrey'}}>   
+            <Slider 
+              aria-label="Custom marks"
+              defaultValue={3}
+              min={0}
+              max={4}
+              getAriaValueText={valuetext}
+              step={0.5}
+              valueLabelDisplay="off"
+              marks={marks}
+              orientation="vertical"
+              onChange={handleChange}
+              style={{ margin: '2rem' }}/>
         </Box>
       </div>
-      <div style={{ width: '100%' }}>
+      <div style={{ width: '100%', borderLeft: '1px solid lightGrey'}}>
         <PhotoAnimator photoUrl={getPicture(value)} headingText={valuetext(value)} isVideo={false}/>
         <div>
           {value < 1.5? <TheNewport/> : value < 3 ? <Establishment/> : value < 4? <AdvancedNavigation/> : <div/>}

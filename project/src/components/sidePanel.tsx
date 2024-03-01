@@ -57,8 +57,6 @@ interface SidePanelProps {
 export default function SidePanel({page, open, onClose, onOpen, setPage}: SidePanelProps) {
   const classes = useStyles();
 
-  
-
   const list = () => (
     <Box
       sx={{ width: '100%' }}
