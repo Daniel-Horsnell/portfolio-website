@@ -14,9 +14,10 @@ function SumoBots() {
         </div>
         <div style={{ marginBottom: '5rem', left: '6rem', marginTop: '2rem' }}>
           <Text>SumoBots is competition in which teams create robots to push another teams robot out of a circular arena.</Text>
-          <Text>My team of four and I entered the UNSW tournament and won second place. To create our Sumobot we used arduino,</Text>
-          <Text>IR snesors and and ultrasonic sensor to control the robot, detect the arena edge and detect the other robot. </Text>
-          <Text>Our design consisted of a 3D printed chassis with an outer shell of sheet-metal that formed a wedge shape.</Text>
+          <Text>My team of four and I entered the UNSW tournament and won second place. To create our Sumobot we used </Text>
+          <Text>arduino, IR snesors and and ultrasonic sensor to control the robot, detect the arena edge and detect </Text>
+          <Text>the other robot. Our design consisted of a 3D printed chassis with an outer shell of sheet-metal that </Text>
+          <Text>formed a wedge shape.</Text>
         </div>
       </div>
     </div>

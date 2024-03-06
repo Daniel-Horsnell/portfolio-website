@@ -101,7 +101,7 @@ const Text = styled.p`
   opacity: 0;
   margin: 0;
   left: 5rem;
-  width : auto;
+  width : 90vw;
 `;
 
 export {

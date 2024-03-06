@@ -44,7 +44,7 @@ const Photo = styled.img`
   height: auto;
 `;
 
-const icons = [HomeIcon, WorkIcon, ConstructionIcon, AssignmentIcon, SchoolIcon]
+const icons = [HomeIcon, WorkIcon, ConstructionIcon, SchoolIcon]
 
 interface SidePanelProps {
   page: string;
@@ -78,7 +78,7 @@ export default function SidePanel({page, open, onClose, onOpen, setPage}: SidePa
       </List>
       <Divider />
       <List>
-        {['Resume', 'Education'].map((text, index) => (
+        {['Education'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton onClick={() => setPage(text)}>
               <ListItemIcon>
