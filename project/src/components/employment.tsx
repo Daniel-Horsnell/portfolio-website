@@ -4,6 +4,7 @@ import PhotoAnimator from '../shared/photoAnimator';
 import TheNewport from './employment/theNewport';
 import Establishment from './employment/establishment';
 import AdvancedNavigation from './employment/advancedNavigation';
+import Dematic from './employment/dematic';
 
 const marks = [
   {
@@ -29,18 +30,18 @@ function valuetext(value: number) {
   if (value < 1.5) return 'The Newport: Merivale';
   else if (value < 3) return 'The Establishemnt: Merivale';
   else if (value < 4) return 'Advanced Navigation';
-  else return "Unemployed";
+  else return "Dematic";
 }
 
 function getPicture(value: number) {
   if (value < 1.5) return 'The_Newport.jpg';
   else if (value < 3) return 'Palmerco.jpg';
   else if (value < 4) return 'CloudGroundControl.jpg';
-  else return "grey.png";
+  else return "Dematic_logo.svg";
 }
 
 function Employment() {
-  const [value, setValue] = React.useState<number>(3);
+  const [value, setValue] = React.useState<number>(4);
 
   const handleChange = (event: Event, newValue: number | number[]) => {
     if (typeof newValue === 'number') {
@@ -54,7 +55,7 @@ function Employment() {
         <Box sx={{ height: '80vh', width: '10vw', marginTop: '4rem', borderTop: '1px solid lightGrey'}}>   
             <Slider 
               aria-label="Custom marks"
-              defaultValue={3}
+              defaultValue={4}
               min={0}
               max={4}
               getAriaValueText={valuetext}
@@ -69,7 +70,7 @@ function Employment() {
       <div style={{ width: '100%', borderLeft: '1px solid lightGrey'}}>
         <PhotoAnimator photoUrl={getPicture(value)} headingText={valuetext(value)} isVideo={false}/>
         <div>
-          {value < 1.5? <TheNewport/> : value < 3 ? <Establishment/> : value < 4? <AdvancedNavigation/> : <div/>}
+          {value < 1.5? <TheNewport/> : value < 3 ? <Establishment/> : value < 4? <AdvancedNavigation/> : <Dematic/>}
         </div>
       </div>
     </div>

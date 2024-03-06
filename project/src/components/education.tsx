@@ -19,9 +19,10 @@ function Education() {
           <Text>WAM: 83.75</Text>
         </div>
         <div style={{ marginBottom: '5rem', left: '6rem'}}>
-          <Text>I studied a Bacholor's of Engineering at the University of New South Wales, graduating with first class honours.</Text>
-          <Text>I started this degree in 2020 and completed it at the end of 2023. During this time I participated in many projects.</Text>
-          <Text>Some of which can be seen in the projects section of this website.</Text>
+          <Text>I studied a Bacholor's of Engineering at the University of New South Wales, graduating with first class honours.
+            I started this degree in 2020 and completed it at the end of 2023. During this time I participated in many projects. 
+            Some of which can be seen in the projects section of this website.</Text>
+
         </div>
       </div>
     </div>
